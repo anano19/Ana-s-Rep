@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Items</title>
+</head>
+<body>
+    <header>
+        <h1>Menu Items</h1>
+    </header>
+    <main>
+        <ul>
+            {% for item in menu_items %}
+                <li>
+                    <h2>{{ item.title }}</h2>
+                    <p>Price: ${{ item.price }}</p>
+                    <p>Featured: {{ item.is_featured|yesno:"Yes,No" }}</p>
+                </li>
+            {% empty %}
+                <li>No menu items available.</li>
+            {% endfor %}
+        </ul>
+    </main>
+    <footer>
+        <p>&copy; 2023 Your Restaurant Name</p>
+    </footer>
+</body>
+</html>
